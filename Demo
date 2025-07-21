@@ -1,0 +1,49 @@
+// 00P: Object Oriented Programming
+// Programming Paradigm
+// 00P: The Paradigm Use For Build Any Business
+// class
+: Blueprint Of The Object
+/ Object : Specific Instance From Class
+// 4 Pillars
+
+// 1. Encapsulation
+// 2. Inheritance
+// 3. Ploymorphism
+// 4. Abstraction
+
+// 1. Encapsulation :
+// Class Or Struct
+// Seperate The Data(Attributes) Definition From Its Use
+/I Setter Getter Method - Properties|
+// Employee
+// Id Name salary
+// 1. End User Access data itself
+// 2. No Data Validation
+// 3. No Read Only Filed
+
+// How to Apply Encapsulation:
+// 1. Make All Data(Attributes) Private
+// 2. Access Data Through :
+// 2.1. Setter Getter Method
+// 2.2. Properties
+
+// Apply Encapsulation Using Properties:
+// 1. Full Property
+// 2. Automatic Property
+// 3. Special Property [Indexer]
+
+Car C01;
+// Decalre For Refernce (Pointer) From Type 'Car'
+// C01 : Can Refer To Object From Type 'Car' Or Any Class Inherited 
+// C01 : Refer To Null
+//Console WriteLine(C01);
+// 8 Bytes Will Be Allocated At STACK For The Reference 'C01'
+// o Bytes Will Be Allocated At HEAP
+
+
+C01 = new Car();
+// new
+// 1. Allocate The Number Of Required Bytes At HEAP For The 0bject
+// 2. Initailized The Allocated Bytes With The Default Value
+// 3. Call User-Defined Constructor if Exists
+// 4. Assign The Object To The Reference
