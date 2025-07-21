@@ -171,3 +171,73 @@ class Program
         }
     }
 }
+
+-------------------------------------------------------------------
+// Q 4 
+
+public class HiringDate
+{
+    private int day;
+    private int month;
+    private int year;
+
+    public HiringDate(int day, int month, int year)
+    {
+        if (!IsValidDate(day, month, year))
+        {
+            throw new ArgumentException("Invalid date provided.");
+        }
+
+        this.day = day;
+        this.month = month;
+        this.year = year;
+    }
+
+    public int Day
+    {
+        get { return day; }
+        set
+        {
+            if (!IsValidDate(value, this.month, this.year))
+                throw new ArgumentException("Invalid day.");
+            day = value;
+        }
+    }
+
+    public int Month
+    {
+        get { return month; }
+        set
+        {
+            if (!IsValidDate(this.day, value, this.year))
+                throw new ArgumentException("Invalid month.");
+            month = value;
+        }
+    }
+
+    public int Year
+    {
+        get { return year; }
+        set
+        {
+            if (!IsValidDate(this.day, this.month, value))
+                throw new ArgumentException("Invalid year.");
+            year = value;
+        }
+    }
+
+   
+    public override string ToString()
+    {
+        return $"{day:D2}/{month:D2}/{year}";
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        HiringDate date = new HiringDate(21, 7, 2025);
+        Console.WriteLine("Hiring Date: " + date);
+    }
+}
