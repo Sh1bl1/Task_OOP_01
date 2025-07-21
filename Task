@@ -90,3 +90,84 @@ class Program
         Console.WriteLine($"The oldest person is {oldest.Name} with age {oldest.Age}.");
     }
 }
+
+-----------------------------------------------------------
+// Q 3 
+
+enum SecurityLevel
+{
+    Guest,
+    Developer,
+    Secretary,
+    DBA
+}
+
+class Employee
+{
+    public int ID { get; set; }
+    public string Name { get; set; }
+    private char gender;
+
+    public char Gender
+    {
+        get { return gender; }
+        set
+        {
+            if (value == 'M' || value == 'F')
+                gender = value;
+            else
+                throw new ArgumentException("Gender must be 'M' or 'F'.");
+        }
+    }
+
+    public SecurityLevel SecurityLevel { get; set; }
+    public decimal Salary { get; set; }
+    public DateTime HireDate { get; set; }
+
+    public Employee(int id, string name, char gender, SecurityLevel level, decimal salary, DateTime hireDate)
+    {
+        ID = id;
+        Name = name;
+        Gender = gender; 
+        SecurityLevel = level;
+        Salary = salary;
+        HireDate = hireDate;
+    }
+
+   
+}
+
+class Program
+{
+    static void Main()
+    {
+        try
+        {
+            Console.Write("Enter Employee ID: ");
+            int id = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter Name: ");
+            string name = Console.ReadLine();
+
+            Console.Write("Enter Gender (M/F): ");
+            char gender = Char.ToUpper(Convert.ToChar(Console.ReadLine()));
+
+            Console.WriteLine("Select Security Level (0: Guest, 1: Developer, 2: Secretary, 3: DBA): ");
+            SecurityLevel level = (SecurityLevel)Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter Salary: ");
+            decimal salary = Convert.ToDecimal(Console.ReadLine());
+
+            Console.Write("Enter Hire Date (yyyy-MM-dd): ");
+            DateTime hireDate = Convert.ToDateTime(Console.ReadLine());
+
+            Employee emp = new Employee(id, name, gender, level, salary, hireDate);
+            Console.WriteLine("Employee Information:");
+            Console.WriteLine(emp);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+    }
+}
